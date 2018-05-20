@@ -1,23 +1,37 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang = "pt-br">
 <head>
-    <meta charset="utf-8" />
-  
-    <title>Calculadora</title>
-   <link rel="stylesheet" href="_css/estilo.css"
+   <title>Exemplo</title>
+   <meta charset = "UTF-8">
 </head>
 <body>
-    <div>
-<?php 
-$n1 = $_GET["x"];
-$n2 = $_GET["y"];
+   <form action="" method="post" >
+      Primeiro Numero: <input name="num1" type="text"><br>
+      Segundo numero: <input name="num2" type="text"><br>
+      <input type="submit" name="operacao" value="+">     
+      <input type="submit" name="operacao" value="-">     
+      <input type="submit" name="operacao" value="*">     
+      <input type="submit" name="operacao" value="/">     
+   </form> 
+<?php
 
-echo "A soma dos dois números foi ". ( $n1+$n2);
+   $a = $_POST['num1'];
+   $b = $_POST['num2'];
+   $op= $_POST['operacao'];
 
+   if( !empty($op) ) {
+      if($op == '+')
+         $c = $a + $b;
+      else if($op == '-')
+         $c = $a - $b;
+      else if($op == '*')
+         $c = $a*$b;
+      else
+         $c = $a/$b;
 
-?>
+      echo "O resultado da opera&ccedil;&atilde;o &eacute;: $c";
+   }
 
-    </div>
-
+?>       
 </body>
 </html>
